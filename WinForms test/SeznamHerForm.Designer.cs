@@ -77,7 +77,7 @@
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(634, 264);
             dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dataGridView1.CellContentClick += DataGridView1_CellContentClick;
             // 
             // SeznamHerForm
             // 
@@ -87,6 +87,7 @@
             Controls.Add(SeznamLayoutPanel);
             Name = "SeznamHerForm";
             Text = "SeznamHerForm";
+            Load += SeznamHerForm_Load;
             SeznamLayoutPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

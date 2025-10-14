@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace WinForms_test
 {
     public partial class SeznamHerForm : Form
     {
+
         private Menu hlavniMenu;
         public SeznamHerForm(Menu menu)
         {
@@ -26,9 +28,23 @@ namespace WinForms_test
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void SeznamHerForm_Load(object sender, EventArgs e)
+        {
+            XDocument databaseHer;
+            if (!File.Exists("DatabaseHer.xml"))
+            {
+                databaseHer = new XDocument(new XElement("Hry"));
+                databaseHer.Save("DatabaseHer.xml");
+            }
+            else
+            {
+                databaseHer = XDocument.Load("DatabaseHer.xml");
+            }
         }
     }
 }

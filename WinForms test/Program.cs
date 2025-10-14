@@ -12,6 +12,7 @@ namespace WinForms_test
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Menu());
+            string xmlCesta = Path.Combine(Application.StartupPath, "DatabaseHer.xml");
         }
     }
 }
