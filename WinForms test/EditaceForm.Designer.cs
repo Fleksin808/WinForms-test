@@ -56,7 +56,7 @@
             EditaceLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             EditaceLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             EditaceLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            EditaceLayoutPanel.Size = new Size(800, 450);
+            EditaceLayoutPanel.Size = new Size(1169, 633);
             EditaceLayoutPanel.TabIndex = 0;
             EditaceLayoutPanel.Paint += TableLayoutPanel1_Paint;
             // 
@@ -67,9 +67,9 @@
             AddGameButton.Dock = DockStyle.Fill;
             AddGameButton.FlatStyle = FlatStyle.Flat;
             AddGameButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            AddGameButton.Location = new Point(83, 48);
+            AddGameButton.Location = new Point(83, 66);
             AddGameButton.Name = "AddGameButton";
-            AddGameButton.Size = new Size(634, 84);
+            AddGameButton.Size = new Size(1003, 120);
             AddGameButton.TabIndex = 0;
             AddGameButton.Text = "PŘIDAT HRU";
             AddGameButton.UseVisualStyleBackColor = false;
@@ -81,9 +81,9 @@
             DeleteGameButton.Dock = DockStyle.Fill;
             DeleteGameButton.FlatStyle = FlatStyle.Flat;
             DeleteGameButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            DeleteGameButton.Location = new Point(83, 138);
+            DeleteGameButton.Location = new Point(83, 192);
             DeleteGameButton.Name = "DeleteGameButton";
-            DeleteGameButton.Size = new Size(634, 84);
+            DeleteGameButton.Size = new Size(1003, 120);
             DeleteGameButton.TabIndex = 1;
             DeleteGameButton.Text = "ODEBRAT HRU";
             DeleteGameButton.UseVisualStyleBackColor = false;
@@ -95,9 +95,9 @@
             EditGameButton.Dock = DockStyle.Fill;
             EditGameButton.FlatStyle = FlatStyle.Flat;
             EditGameButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            EditGameButton.Location = new Point(83, 228);
+            EditGameButton.Location = new Point(83, 318);
             EditGameButton.Name = "EditGameButton";
-            EditGameButton.Size = new Size(634, 84);
+            EditGameButton.Size = new Size(1003, 120);
             EditGameButton.TabIndex = 2;
             EditGameButton.Text = "UPRAVIT HRU";
             EditGameButton.UseVisualStyleBackColor = false;
@@ -109,9 +109,9 @@
             ZpetButton.Dock = DockStyle.Fill;
             ZpetButton.FlatStyle = FlatStyle.Flat;
             ZpetButton.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            ZpetButton.Location = new Point(83, 318);
+            ZpetButton.Location = new Point(83, 444);
             ZpetButton.Name = "ZpetButton";
-            ZpetButton.Size = new Size(634, 84);
+            ZpetButton.Size = new Size(1003, 120);
             ZpetButton.TabIndex = 3;
             ZpetButton.Text = "ZPĚT";
             ZpetButton.UseVisualStyleBackColor = false;
@@ -121,7 +121,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1169, 633);
             Controls.Add(EditaceLayoutPanel);
             Name = "EditaceForm";
             Text = "EditaceForm";

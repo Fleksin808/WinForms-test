@@ -28,13 +28,14 @@ namespace WinForms_test
             this.Close();
         }
 
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void ZobrazeniZaznamuHer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
 
         private void SeznamHerForm_Load(object sender, EventArgs e)
         {
+            //Kontrola existence XML souboru, pokud neexistuje, vytvoření nového
             XDocument databaseHer;
             if (!File.Exists("DatabaseHer.xml"))
             {
@@ -45,6 +46,20 @@ namespace WinForms_test
             {
                 databaseHer = XDocument.Load("DatabaseHer.xml");
             }
+            // Načtení dat z XML souboru do DataSetu
+            DataSet setDat = new DataSet();
+            setDat.ReadXml("DatabaseHer.xml");
+            ZobrazeniZaznamuHer.AutoGenerateColumns = false;
+            ZobrazeniZaznamuHer.DataSource = setDat.Tables[0];
+            ZobrazeniZaznamuHer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+         
+            ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "id";
+            ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
+            ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
+            ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
+            ZobrazeniZaznamuHer.Columns["rokVydani"].DataPropertyName = "RokVydani";
+            ZobrazeniZaznamuHer.Columns["achievementCount"].DataPropertyName = "PocetAchievementu";
+
         }
     }
 }
