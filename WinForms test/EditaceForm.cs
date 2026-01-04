@@ -12,8 +12,8 @@ namespace WinForms_test
 {    
     public partial class EditaceForm : Form
     {
-        private Menu hlavniMenu;
-        public EditaceForm(Menu menu)
+        private MainMenu hlavniMenu;
+        public EditaceForm(MainMenu menu)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;

@@ -14,8 +14,8 @@ namespace WinForms_test
     public partial class SeznamHerForm : Form
     {
 
-        private Menu hlavniMenu;
-        public SeznamHerForm(Menu menu)
+        private MainMenu hlavniMenu;
+        public SeznamHerForm(MainMenu menu)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
@@ -52,14 +52,14 @@ namespace WinForms_test
             ZobrazeniZaznamuHer.AutoGenerateColumns = false;
             ZobrazeniZaznamuHer.DataSource = setDat.Tables[0];
             ZobrazeniZaznamuHer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-         
+
+            // vytbořit exception pro případ, že tabulka je prázdná
             ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "id";
             ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
             ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
             ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
             ZobrazeniZaznamuHer.Columns["rokVydani"].DataPropertyName = "RokVydani";
             ZobrazeniZaznamuHer.Columns["achievementCount"].DataPropertyName = "PocetAchievementu";
-
         }
     }
 }

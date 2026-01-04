@@ -1,8 +1,8 @@
 namespace WinForms_test
 {
-    public partial class Menu : Form
+    public partial class MainMenu : Form
     {
-        public Menu()
+        public MainMenu()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;

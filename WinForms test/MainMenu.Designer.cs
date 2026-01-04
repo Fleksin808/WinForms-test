@@ -1,6 +1,6 @@
 ﻿namespace WinForms_test
 {
-    partial class Menu
+    partial class MainMenu
     {
         /// <summary>
         ///  Required designer variable.
