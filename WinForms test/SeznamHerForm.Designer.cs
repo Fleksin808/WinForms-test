@@ -36,7 +36,9 @@
             zanr = new DataGridViewTextBoxColumn();
             studio = new DataGridViewTextBoxColumn();
             rokVydani = new DataGridViewTextBoxColumn();
-            achievementCount = new DataGridViewTextBoxColumn();
+            achievementSplnene = new DataGridViewTextBoxColumn();
+            achievementCelkem = new DataGridViewTextBoxColumn();
+
             SeznamLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ZobrazeniZaznamuHer).BeginInit();
             SuspendLayout();
@@ -79,7 +81,7 @@
             // 
             ZobrazeniZaznamuHer.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             ZobrazeniZaznamuHer.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ZobrazeniZaznamuHer.Columns.AddRange(new DataGridViewColumn[] { id, hra, zanr, studio, rokVydani, achievementCount });
+            ZobrazeniZaznamuHer.Columns.AddRange(new DataGridViewColumn[] { id, hra, zanr, studio, rokVydani, achievementSplnene, achievementCelkem });
             ZobrazeniZaznamuHer.Dock = DockStyle.Fill;
             ZobrazeniZaznamuHer.Location = new Point(83, 64);
             ZobrazeniZaznamuHer.Name = "ZobrazeniZaznamuHer";
@@ -112,10 +114,15 @@
             rokVydani.HeaderText = "Rok vydání";
             rokVydani.Name = "rokVydani";
             // 
-            // achievementCount
+            // achievementSplnene
             // 
-            achievementCount.HeaderText = "Počet achievementů";
-            achievementCount.Name = "achievementCount";
+            achievementSplnene.HeaderText = "Počet splněných achievementů";
+            achievementSplnene.Name = "achievementSplnene";
+            //
+            // achievementCelkem
+            //
+            achievementCelkem.HeaderText = "Celkový počet achievementů";
+            achievementCelkem.Name = "achievementCelkem";
             // 
             // SeznamHerForm
             // 
@@ -141,6 +148,7 @@
         private DataGridViewTextBoxColumn zanr;
         private DataGridViewTextBoxColumn studio;
         private DataGridViewTextBoxColumn rokVydani;
-        private DataGridViewTextBoxColumn achievementCount;
+        private DataGridViewTextBoxColumn achievementSplnene;
+        private DataGridViewTextBoxColumn achievementCelkem;
     }
 }

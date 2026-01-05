@@ -14,12 +14,14 @@ namespace WinForms_test
     public partial class SeznamHerForm : Form
     {
 
-        private MainMenu hlavniMenu;
-        public SeznamHerForm(MainMenu menu)
+        private readonly MainMenu hlavniMenu;
+        private readonly Databaze databaze;
+        public SeznamHerForm(MainMenu menu, Databaze databaze)
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             hlavniMenu = menu;
+            this.databaze = databaze;
         }
 
         private void ZpetDoMenuButton_Click(object sender, EventArgs e)
@@ -46,12 +48,20 @@ namespace WinForms_test
             {
                 databaseHer = XDocument.Load("DatabaseHer.xml");
             }
+
             // Načtení dat z XML souboru do DataSetu
             DataSet setDat = new DataSet();
             setDat.ReadXml("DatabaseHer.xml");
-            ZobrazeniZaznamuHer.AutoGenerateColumns = false;
+            // Nastavení DataGridView pro zobrazení dat
             ZobrazeniZaznamuHer.DataSource = setDat.Tables[0];
             ZobrazeniZaznamuHer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ZobrazeniZaznamuHer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //Zakázat úpravy přímo v DataGridView ve formě přímého psaní do buněk
+            ZobrazeniZaznamuHer.ReadOnly = true;
+            ZobrazeniZaznamuHer.AutoGenerateColumns = false;
+            ZobrazeniZaznamuHer.AllowUserToAddRows = false;
+            ZobrazeniZaznamuHer.AllowUserToDeleteRows = false;
+            ZobrazeniZaznamuHer.MultiSelect = false;
 
             // vytbořit exception pro případ, že tabulka je prázdná
             ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "id";
@@ -59,7 +69,8 @@ namespace WinForms_test
             ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
             ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
             ZobrazeniZaznamuHer.Columns["rokVydani"].DataPropertyName = "RokVydani";
-            ZobrazeniZaznamuHer.Columns["achievementCount"].DataPropertyName = "PocetAchievementu";
+            ZobrazeniZaznamuHer.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
+            ZobrazeniZaznamuHer.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
         }
     }
 }

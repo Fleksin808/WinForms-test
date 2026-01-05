@@ -2,6 +2,7 @@ namespace WinForms_test
 {
     public partial class MainMenu : Form
     {
+        private readonly Databaze databaze = new();
         public MainMenu()
         {
             InitializeComponent();
@@ -20,7 +21,7 @@ namespace WinForms_test
         }
         private void StartButton_Click(object sender, EventArgs e)
         {
-            var seznam = new SeznamHerForm(this);
+            var seznam = new SeznamHerForm(this, databaze);
             this.Hide();
             seznam.Show();           
         }
@@ -33,9 +34,9 @@ namespace WinForms_test
         }
         private void SearchButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("[r] - Pro vyhledání hry podle roku vydání");
-            Console.WriteLine("[d] - Pro vyhledání hry podle vývojáøského studia");
-            Console.WriteLine("[z] - Pro vyhledání hry podle žánru");
+            var vyhledavani = new VyhledavaniForm(this);
+            this.Hide();
+            vyhledavani.Show();        
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
