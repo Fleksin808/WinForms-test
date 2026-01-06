@@ -78,7 +78,7 @@ namespace WinForms_test
                     RokVydani = DateTime.Now.Year,
                     Zanr = "Zanr",
                     AchievementySplnene = 0,
-                    AchievementyCelkem = 0
+                    AchievementyCelkem = 1
                 });
             }
         }
@@ -89,7 +89,7 @@ namespace WinForms_test
             if (novaHra == null)
                 throw new ArgumentNullException(nameof(novaHra));
 
-            // Id doplníme automaticky
+            // Automatické vytvoření unikátního ID
             novaHra.Id = hry.Any() ? hry.Max(h => h.Id) + 1 : 1;
 
             novaHra.ValidaceDat();

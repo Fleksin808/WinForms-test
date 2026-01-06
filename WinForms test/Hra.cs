@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public string NazevHry { get; set; } = string.Empty;
+        public string NazevHry { get; set; } = string.Empty; // Brání tomu, aby byl název hry null
 
         public string VyvojarskeStudio { get; set; } = string.Empty;
 
@@ -16,7 +16,7 @@
 
         public int AchievementyCelkem { get; set; }
 
-        public void ValidaceDat() //Metoda pro validaci dat hry
+        public void ValidaceDat() // Metoda pro validaci dat hry
         {
             if (string.IsNullOrWhiteSpace(NazevHry))
                 throw new ArgumentException("Název hry nesmí být prázdný.");

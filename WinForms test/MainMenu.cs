@@ -28,7 +28,7 @@ namespace WinForms_test
 
         private void EditaceButton_Click(object sender, EventArgs e)
         {
-            var editace = new EditaceForm(this);
+            var editace = new EditaceForm(this, databaze);
             this.Hide();
             editace.Show();
         }
