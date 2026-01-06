@@ -38,6 +38,7 @@ namespace WinForms_test
         private void SeznamHerForm_Load(object sender, EventArgs e)
         {
             // Nastavení DataGridView pro zobrazení dat
+            ZobrazeniZaznamuHer.AutoGenerateColumns = false;
             ZobrazeniZaznamuHer.DataSource = databaze.Hry;
             ZobrazeniZaznamuHer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ZobrazeniZaznamuHer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -48,7 +49,7 @@ namespace WinForms_test
             ZobrazeniZaznamuHer.AllowUserToDeleteRows = false;
             ZobrazeniZaznamuHer.MultiSelect = false;
 
-            // vytbořit exception pro případ, že tabulka je prázdná
+            // vytvořit exception pro případ, že tabulka je prázdná
             ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "Id";
             ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
             ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
