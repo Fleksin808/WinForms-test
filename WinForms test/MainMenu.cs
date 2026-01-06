@@ -32,12 +32,6 @@ namespace WinForms_test
             this.Hide();
             editace.Show();
         }
-        private void SearchButton_Click(object sender, EventArgs e)
-        {
-            var vyhledavani = new VyhledavaniForm(this);
-            this.Hide();
-            vyhledavani.Show();        
-        }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {

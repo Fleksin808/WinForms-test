@@ -37,23 +37,8 @@ namespace WinForms_test
 
         private void SeznamHerForm_Load(object sender, EventArgs e)
         {
-            //Kontrola existence XML souboru, pokud neexistuje, vytvoření nového
-            XDocument databaseHer;
-            if (!File.Exists("DatabaseHer.xml"))
-            {
-                databaseHer = new XDocument(new XElement("Hry"));
-                databaseHer.Save("DatabaseHer.xml");
-            }
-            else
-            {
-                databaseHer = XDocument.Load("DatabaseHer.xml");
-            }
-
-            // Načtení dat z XML souboru do DataSetu
-            DataSet setDat = new DataSet();
-            setDat.ReadXml("DatabaseHer.xml");
             // Nastavení DataGridView pro zobrazení dat
-            ZobrazeniZaznamuHer.DataSource = setDat.Tables[0];
+            ZobrazeniZaznamuHer.DataSource = databaze.Hry;
             ZobrazeniZaznamuHer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ZobrazeniZaznamuHer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //Zakázat úpravy přímo v DataGridView ve formě přímého psaní do buněk
@@ -64,7 +49,7 @@ namespace WinForms_test
             ZobrazeniZaznamuHer.MultiSelect = false;
 
             // vytbořit exception pro případ, že tabulka je prázdná
-            ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "id";
+            ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "Id";
             ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
             ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
             ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";

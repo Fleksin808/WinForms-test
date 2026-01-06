@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WinForms_test
 {
-    internal class Hra
+    public class Hra
     {
         public int Id { get; set; }
 
