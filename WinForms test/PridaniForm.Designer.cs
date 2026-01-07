@@ -207,7 +207,7 @@
             LabelPridaniRok.Name = "LabelPridaniRok";
             LabelPridaniRok.Size = new Size(391, 44);
             LabelPridaniRok.TabIndex = 9;
-            LabelPridaniRok.Text = "Rok vydání:";
+            LabelPridaniRok.Text = "Rok Vydání:";
             // 
             // LabelPridaniSplnene
             // 
@@ -218,7 +218,7 @@
             LabelPridaniSplnene.Name = "LabelPridaniSplnene";
             LabelPridaniSplnene.Size = new Size(391, 44);
             LabelPridaniSplnene.TabIndex = 10;
-            LabelPridaniSplnene.Text = "Počet splněných achievementů:";
+            LabelPridaniSplnene.Text = "Počet Splněných Achievementů:";
             // 
             // LabelPridaniCelkem
             // 
@@ -229,7 +229,7 @@
             LabelPridaniCelkem.Name = "LabelPridaniCelkem";
             LabelPridaniCelkem.Size = new Size(391, 44);
             LabelPridaniCelkem.TabIndex = 11;
-            LabelPridaniCelkem.Text = "Celkový počet achievementů:";
+            LabelPridaniCelkem.Text = "Celkový Počet Achievementů:";
             // 
             // PridaniForm
             // 
