@@ -25,6 +25,7 @@ namespace WinForms_test
             ZobrazeniProEditaci.MultiSelect = false;
             ZobrazeniProEditaci.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ZobrazeniProEditaci.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra;
 
             zdroj.DataSource = databaze.Hry;
             ZobrazeniProEditaci.DataSource = zdroj;
@@ -71,7 +72,21 @@ namespace WinForms_test
 
         private void DeleteGameButton_Click(object sender, EventArgs e)
         {
+            var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra;
+            if (hra == null)
+            {
+                MessageBox.Show("Vyber hru, kterou chceš odebrat.");
+                return;
+            }
 
+            var potvrzeni = MessageBox.Show($"Opravdu chceš odebrat hru \"{hra.NazevHry}\"?","Potvrzení",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (potvrzeni == DialogResult.Yes)
+            {
+                databaze.SmazatHru(hra);
+            }
         }
     }
 }
