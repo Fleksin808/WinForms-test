@@ -121,6 +121,7 @@
             EditGameButton.TabIndex = 2;
             EditGameButton.Text = "UPRAVIT HRU";
             EditGameButton.UseVisualStyleBackColor = false;
+            EditGameButton.Click += EditGameButton_Click;
             // 
             // AddGameButton
             // 

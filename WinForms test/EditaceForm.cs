@@ -79,7 +79,7 @@ namespace WinForms_test
                 return;
             }
 
-            var potvrzeni = MessageBox.Show($"Opravdu chceš odebrat hru \"{hra.NazevHry}\"?","Potvrzení",
+            var potvrzeni = MessageBox.Show($"Opravdu chceš odebrat hru \"{hra.NazevHry}\"?", "Potvrzení",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
 
@@ -87,6 +87,18 @@ namespace WinForms_test
             {
                 databaze.SmazatHru(hra);
             }
+        }
+
+        private void EditGameButton_Click(object sender, EventArgs e)
+        {
+            var UpravaForm = new UpravaForm(databaze);
+            var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra;
+            if (hra == null)
+            {
+                MessageBox.Show("Vyber hru, kterou chceš upravit.");
+                return;
+            }
+            UpravaForm.ShowDialog(this);
         }
     }
 }
