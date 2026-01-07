@@ -23,7 +23,7 @@ namespace WinForms_test
         {
             var seznam = new SeznamHerForm(this, databaze);
             this.Hide();
-            seznam.Show();           
+            seznam.Show();
         }
 
         private void EditaceButton_Click(object sender, EventArgs e)

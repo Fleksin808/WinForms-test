@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             EditaceLayoutPanel = new TableLayoutPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
+            EditButtonLeyout = new TableLayoutPanel();
             SaveGameButton = new Button();
             EditGameButton = new Button();
             AddGameButton = new Button();
             DeleteGameButton = new Button();
+            TextBoxFiltrace = new TextBox();
             ZpetButton = new Button();
             ZobrazeniProEditaci = new DataGridView();
             id = new DataGridViewTextBoxColumn();
@@ -44,7 +45,7 @@
             achievementSplnene = new DataGridViewTextBoxColumn();
             achievementCelkem = new DataGridViewTextBoxColumn();
             EditaceLayoutPanel.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
+            EditButtonLeyout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ZobrazeniProEditaci).BeginInit();
             SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             EditaceLayoutPanel.BackColor = Color.CadetBlue;
             EditaceLayoutPanel.ColumnCount = 1;
             EditaceLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            EditaceLayoutPanel.Controls.Add(tableLayoutPanel1, 0, 1);
+            EditaceLayoutPanel.Controls.Add(EditButtonLeyout, 0, 1);
             EditaceLayoutPanel.Controls.Add(ZpetButton, 0, 3);
             EditaceLayoutPanel.Controls.Add(ZobrazeniProEditaci, 0, 2);
             EditaceLayoutPanel.Dock = DockStyle.Fill;
@@ -70,25 +71,27 @@
             EditaceLayoutPanel.TabIndex = 0;
             EditaceLayoutPanel.Paint += TableLayoutPanel1_Paint;
             // 
-            // tableLayoutPanel1
+            // EditButtonLeyout
             // 
-            tableLayoutPanel1.ColumnCount = 5;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutPanel1.Controls.Add(SaveGameButton, 3, 0);
-            tableLayoutPanel1.Controls.Add(EditGameButton, 1, 0);
-            tableLayoutPanel1.Controls.Add(AddGameButton, 0, 0);
-            tableLayoutPanel1.Controls.Add(DeleteGameButton, 2, 0);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(83, 66);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1003, 57);
-            tableLayoutPanel1.TabIndex = 4;
+            EditButtonLeyout.ColumnCount = 5;
+            EditButtonLeyout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            EditButtonLeyout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            EditButtonLeyout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            EditButtonLeyout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            EditButtonLeyout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            EditButtonLeyout.Controls.Add(SaveGameButton, 3, 0);
+            EditButtonLeyout.Controls.Add(EditGameButton, 1, 0);
+            EditButtonLeyout.Controls.Add(AddGameButton, 0, 0);
+            EditButtonLeyout.Controls.Add(DeleteGameButton, 2, 0);
+            EditButtonLeyout.Controls.Add(TextBoxFiltrace, 4, 0);
+            EditButtonLeyout.Dock = DockStyle.Fill;
+            EditButtonLeyout.Location = new Point(83, 66);
+            EditButtonLeyout.Name = "EditButtonLeyout";
+            EditButtonLeyout.RowCount = 1;
+            EditButtonLeyout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            EditButtonLeyout.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            EditButtonLeyout.Size = new Size(1003, 57);
+            EditButtonLeyout.TabIndex = 4;
             // 
             // SaveGameButton
             // 
@@ -133,6 +136,7 @@
             AddGameButton.TabIndex = 0;
             AddGameButton.Text = "PŘIDAT HRU";
             AddGameButton.UseVisualStyleBackColor = false;
+            AddGameButton.Click += AddGameButton_Click;
             // 
             // DeleteGameButton
             // 
@@ -147,6 +151,17 @@
             DeleteGameButton.TabIndex = 1;
             DeleteGameButton.Text = "ODEBRAT HRU";
             DeleteGameButton.UseVisualStyleBackColor = false;
+            DeleteGameButton.Click += DeleteGameButton_Click;
+            // 
+            // TextBoxFiltrace
+            // 
+            TextBoxFiltrace.Dock = DockStyle.Bottom;
+            TextBoxFiltrace.Location = new Point(803, 31);
+            TextBoxFiltrace.Name = "TextBoxFiltrace";
+            TextBoxFiltrace.Size = new Size(197, 23);
+            TextBoxFiltrace.TabIndex = 6;
+            TextBoxFiltrace.Text = "Vyhledat podle názvu";
+            TextBoxFiltrace.TextChanged += TextBoxFiltrace_TextChanged;
             // 
             // ZpetButton
             // 
@@ -218,7 +233,8 @@
             Text = "EditaceForm";
             Load += EditaceForm_Load;
             EditaceLayoutPanel.ResumeLayout(false);
-            tableLayoutPanel1.ResumeLayout(false);
+            EditButtonLeyout.ResumeLayout(false);
+            EditButtonLeyout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)ZobrazeniProEditaci).EndInit();
             ResumeLayout(false);
         }
@@ -230,7 +246,7 @@
         private Button DeleteGameButton;
         private Button EditGameButton;
         private Button ZpetButton;
-        private TableLayoutPanel tableLayoutPanel1;
+        private TableLayoutPanel EditButtonLeyout;
         private Button SaveGameButton;
         private DataGridView ZobrazeniProEditaci;
         private DataGridViewTextBoxColumn id;
@@ -240,5 +256,6 @@
         private DataGridViewTextBoxColumn rokVydani;
         private DataGridViewTextBoxColumn achievementSplnene;
         private DataGridViewTextBoxColumn achievementCelkem;
+        private TextBox TextBoxFiltrace;
     }
 }

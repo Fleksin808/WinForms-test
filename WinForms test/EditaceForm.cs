@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace WinForms_test
 {
@@ -14,7 +6,8 @@ namespace WinForms_test
     {
         private readonly MainMenu hlavniMenu;
         private readonly Databaze databaze;
-       
+        private readonly BindingSource zdroj = new BindingSource();
+
         public EditaceForm(MainMenu menu, Databaze databaze)
         {
             InitializeComponent();
@@ -33,7 +26,8 @@ namespace WinForms_test
             ZobrazeniProEditaci.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ZobrazeniProEditaci.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            ZobrazeniProEditaci.DataSource = databaze.Hry;
+            zdroj.DataSource = databaze.Hry;
+            ZobrazeniProEditaci.DataSource = zdroj;
 
             ZobrazeniProEditaci.Columns["id"].DataPropertyName = "Id";
             ZobrazeniProEditaci.Columns["hra"].DataPropertyName = "NazevHry";
@@ -53,6 +47,31 @@ namespace WinForms_test
         {
             hlavniMenu.Show();
             this.Close();
+        }
+
+        private void TextBoxFiltrace_TextChanged(object sender, EventArgs e)
+        {
+            var hledanyText = TextBoxFiltrace.Text.Trim();
+
+            if (string.IsNullOrEmpty(hledanyText))
+            {
+                zdroj.DataSource = databaze.Hry;
+                return;
+            }
+            var filtrovane = databaze.Hry.Where(h => h.NazevHry.Contains(hledanyText, StringComparison.CurrentCultureIgnoreCase)).ToList();
+
+            zdroj.DataSource = filtrovane;
+        }
+
+        private void AddGameButton_Click(object sender, EventArgs e)
+        {
+            var pridaniForm = new PridaniForm();
+            pridaniForm.ShowDialog(this);
+        }
+
+        private void DeleteGameButton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

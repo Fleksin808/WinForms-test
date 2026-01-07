@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-
-namespace WinForms_test
+﻿namespace WinForms_test
 {
     public partial class SeznamHerForm : Form
     {
@@ -32,7 +21,7 @@ namespace WinForms_test
 
         private void ZobrazeniZaznamuHer_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void SeznamHerForm_Load(object sender, EventArgs e)
