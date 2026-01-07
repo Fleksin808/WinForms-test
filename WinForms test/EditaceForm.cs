@@ -66,7 +66,7 @@ namespace WinForms_test
 
         private void AddGameButton_Click(object sender, EventArgs e)
         {
-            var pridaniForm = new PridaniForm();
+            var pridaniForm = new PridaniForm(databaze);
             pridaniForm.ShowDialog(this);
         }
 
