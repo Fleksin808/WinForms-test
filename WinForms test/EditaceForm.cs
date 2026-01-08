@@ -18,12 +18,10 @@ namespace WinForms_test
 
         private void EditaceForm_Load(object sender, EventArgs e)
         {
+            NastavovacGridu.NastavSloupecProHry(ZobrazeniProEditaci);
             NastavDataGrid();
-
             zdroj.DataSource = databaze.Hry;
-            ZobrazeniProEditaci.DataSource = zdroj;
-
-            NastavSloupce();
+            ZobrazeniProEditaci.DataSource = zdroj;            
         }
 
         private void ZpetButton_Click(object sender, EventArgs e)
@@ -89,17 +87,6 @@ namespace WinForms_test
             {
                 zdroj.ResetBindings(false);
             }
-        }
-
-        private void NastavSloupce()
-        {
-            ZobrazeniProEditaci.Columns["id"].DataPropertyName = "Id";
-            ZobrazeniProEditaci.Columns["hra"].DataPropertyName = "NazevHry";
-            ZobrazeniProEditaci.Columns["zanr"].DataPropertyName = "Zanr";
-            ZobrazeniProEditaci.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
-            ZobrazeniProEditaci.Columns["rokVydani"].DataPropertyName = "RokVydani";
-            ZobrazeniProEditaci.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
-            ZobrazeniProEditaci.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
         }
 
         private void NastavDataGrid()

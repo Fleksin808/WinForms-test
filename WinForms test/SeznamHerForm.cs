@@ -26,17 +26,9 @@
 
         private void SeznamHerForm_Load(object sender, EventArgs e)
         {
+            NastavovacGridu.NastavSloupecProHry(ZobrazeniZaznamuHer);
             NastavGridView();
             ZobrazeniZaznamuHer.DataSource = databaze.Hry;
-            
-           
-            ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "Id";
-            ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
-            ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
-            ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
-            ZobrazeniZaznamuHer.Columns["rokVydani"].DataPropertyName = "RokVydani";
-            ZobrazeniZaznamuHer.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
-            ZobrazeniZaznamuHer.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
         }
 
         private void NastavGridView()
