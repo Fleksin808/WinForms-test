@@ -69,7 +69,6 @@
             EditaceLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
             EditaceLayoutPanel.Size = new Size(1169, 633);
             EditaceLayoutPanel.TabIndex = 0;
-            EditaceLayoutPanel.Paint += TableLayoutPanel1_Paint;
             // 
             // EditButtonLeyout
             // 

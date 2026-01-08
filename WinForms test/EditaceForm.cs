@@ -18,29 +18,12 @@ namespace WinForms_test
 
         private void EditaceForm_Load(object sender, EventArgs e)
         {
-            ZobrazeniProEditaci.AutoGenerateColumns = false;
-            ZobrazeniProEditaci.ReadOnly = true;
-            ZobrazeniProEditaci.AllowUserToAddRows = false;
-            ZobrazeniProEditaci.AllowUserToDeleteRows = false;
-            ZobrazeniProEditaci.MultiSelect = false;
-            ZobrazeniProEditaci.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ZobrazeniProEditaci.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            NastavDataGrid();
 
             zdroj.DataSource = databaze.Hry;
             ZobrazeniProEditaci.DataSource = zdroj;
 
-            ZobrazeniProEditaci.Columns["id"].DataPropertyName = "Id";
-            ZobrazeniProEditaci.Columns["hra"].DataPropertyName = "NazevHry";
-            ZobrazeniProEditaci.Columns["zanr"].DataPropertyName = "Zanr";
-            ZobrazeniProEditaci.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
-            ZobrazeniProEditaci.Columns["rokVydani"].DataPropertyName = "RokVydani";
-            ZobrazeniProEditaci.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
-            ZobrazeniProEditaci.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
-        }
-
-        private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            NastavSloupce();
         }
 
         private void ZpetButton_Click(object sender, EventArgs e)
@@ -61,6 +44,7 @@ namespace WinForms_test
             var filtrovane = databaze.Hry.Where(h => h.NazevHry.Contains(hledanyText, StringComparison.CurrentCultureIgnoreCase)).ToList();
 
             zdroj.DataSource = filtrovane;
+            zdroj.ResetBindings(false); // Obnoví zobrazení
         }
 
         private void AddGameButton_Click(object sender, EventArgs e)
@@ -85,6 +69,7 @@ namespace WinForms_test
             if (potvrzeni == DialogResult.Yes)
             {
                 databaze.SmazatHru(hra);
+                zdroj.ResetBindings(false);
             }
         }
 
@@ -104,6 +89,28 @@ namespace WinForms_test
             {
                 zdroj.ResetBindings(false);
             }
+        }
+
+        private void NastavSloupce()
+        {
+            ZobrazeniProEditaci.Columns["id"].DataPropertyName = "Id";
+            ZobrazeniProEditaci.Columns["hra"].DataPropertyName = "NazevHry";
+            ZobrazeniProEditaci.Columns["zanr"].DataPropertyName = "Zanr";
+            ZobrazeniProEditaci.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
+            ZobrazeniProEditaci.Columns["rokVydani"].DataPropertyName = "RokVydani";
+            ZobrazeniProEditaci.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
+            ZobrazeniProEditaci.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
+        }
+
+        private void NastavDataGrid()
+        {
+            ZobrazeniProEditaci.AutoGenerateColumns = false;
+            ZobrazeniProEditaci.ReadOnly = true;
+            ZobrazeniProEditaci.AllowUserToAddRows = false;
+            ZobrazeniProEditaci.AllowUserToDeleteRows = false;
+            ZobrazeniProEditaci.MultiSelect = false;
+            ZobrazeniProEditaci.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            ZobrazeniProEditaci.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
     }
 }
