@@ -26,9 +26,23 @@
 
         private void SeznamHerForm_Load(object sender, EventArgs e)
         {
+            NastavGridView();
+            ZobrazeniZaznamuHer.DataSource = databaze.Hry;
+            
+           
+            ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "Id";
+            ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
+            ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
+            ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
+            ZobrazeniZaznamuHer.Columns["rokVydani"].DataPropertyName = "RokVydani";
+            ZobrazeniZaznamuHer.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
+            ZobrazeniZaznamuHer.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
+        }
+
+        private void NastavGridView()
+        {
             // Nastavení DataGridView pro zobrazení dat
             ZobrazeniZaznamuHer.AutoGenerateColumns = false;
-            ZobrazeniZaznamuHer.DataSource = databaze.Hry;
             ZobrazeniZaznamuHer.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ZobrazeniZaznamuHer.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             //Zakázat úpravy přímo v DataGridView ve formě přímého psaní do buněk
@@ -37,15 +51,6 @@
             ZobrazeniZaznamuHer.AllowUserToAddRows = false;
             ZobrazeniZaznamuHer.AllowUserToDeleteRows = false;
             ZobrazeniZaznamuHer.MultiSelect = false;
-
-            // vytvořit exception pro případ, že tabulka je prázdná
-            ZobrazeniZaznamuHer.Columns["id"].DataPropertyName = "Id";
-            ZobrazeniZaznamuHer.Columns["hra"].DataPropertyName = "NazevHry";
-            ZobrazeniZaznamuHer.Columns["zanr"].DataPropertyName = "Zanr";
-            ZobrazeniZaznamuHer.Columns["studio"].DataPropertyName = "VyvojarskeStudio";
-            ZobrazeniZaznamuHer.Columns["rokVydani"].DataPropertyName = "RokVydani";
-            ZobrazeniZaznamuHer.Columns["achievementSplnene"].DataPropertyName = "AchievementySplnene";
-            ZobrazeniZaznamuHer.Columns["achievementCelkem"].DataPropertyName = "AchievementyCelkem";
         }
     }
 }

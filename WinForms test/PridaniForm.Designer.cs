@@ -151,6 +151,7 @@
             // 
             PridaniSplnenychNum.Dock = DockStyle.Fill;
             PridaniSplnenychNum.Location = new Point(400, 179);
+            PridaniSplnenychNum.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             PridaniSplnenychNum.Name = "PridaniSplnenychNum";
             PridaniSplnenychNum.Size = new Size(391, 23);
             PridaniSplnenychNum.TabIndex = 4;
@@ -159,6 +160,7 @@
             // 
             PridaniCelkemNum.Dock = DockStyle.Fill;
             PridaniCelkemNum.Location = new Point(400, 223);
+            PridaniCelkemNum.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             PridaniCelkemNum.Name = "PridaniCelkemNum";
             PridaniCelkemNum.Size = new Size(391, 23);
             PridaniCelkemNum.TabIndex = 5;

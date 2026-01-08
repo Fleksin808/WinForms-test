@@ -56,13 +56,8 @@
 
         private void NastavLimity()
         {
-            PridaniRokNum.Minimum = 1950;
-            PridaniRokNum.Maximum = DateTime.Now.Year + 1;
-            PridaniRokNum.Value = DateTime.Now.Year;
-
-            PridaniSplnenychNum.Minimum = 0;
-            PridaniSplnenychNum.Maximum = PridaniCelkemNum.Value;
-            PridaniCelkemNum.Minimum = 0;
+            NastavovacLimitu.NastavRokVydani(PridaniRokNum);
+            NastavovacLimitu.NastavAchievementy(PridaniSplnenychNum, PridaniCelkemNum);
         }
     }
 }

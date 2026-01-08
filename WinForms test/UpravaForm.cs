@@ -41,11 +41,8 @@
 
         private void NastavLimity()
         {
-            UpravaRokNum.Minimum = 1950;
-            UpravaRokNum.Maximum = DateTime.Now.Year + 1;
-
-            UpravaSplneneNum.Minimum = 0;
-            UpravaCelkemNum.Minimum = 0;
+            NastavovacLimitu.NastavRokVydani(UpravaRokNum);
+            NastavovacLimitu.NastavAchievementy(UpravaSplneneNum, UpravaCelkemNum);
         }
 
         private void NactiDataDoFormu()

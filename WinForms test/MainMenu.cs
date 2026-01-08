@@ -9,16 +9,6 @@ namespace WinForms_test
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void TableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void StartButton_Click(object sender, EventArgs e)
         {
             var seznam = new SeznamHerForm(this, databaze);

@@ -214,6 +214,7 @@
             // 
             UpravaSplneneNum.Dock = DockStyle.Fill;
             UpravaSplneneNum.Location = new Point(400, 179);
+            UpravaSplneneNum.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             UpravaSplneneNum.Name = "UpravaSplneneNum";
             UpravaSplneneNum.Size = new Size(391, 23);
             UpravaSplneneNum.TabIndex = 10;
@@ -222,6 +223,7 @@
             // 
             UpravaCelkemNum.Dock = DockStyle.Fill;
             UpravaCelkemNum.Location = new Point(400, 223);
+            UpravaCelkemNum.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             UpravaCelkemNum.Name = "UpravaCelkemNum";
             UpravaCelkemNum.Size = new Size(391, 23);
             UpravaCelkemNum.TabIndex = 11;
