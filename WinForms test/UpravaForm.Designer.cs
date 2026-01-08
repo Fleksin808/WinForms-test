@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
-            ZpetDoEditace = new Button();
+            UlozitAZavrit = new Button();
             tableLayoutPanel2 = new TableLayoutPanel();
             UpravaNazevLabel = new Label();
             UpravaZanrLabel = new Label();
@@ -54,7 +54,7 @@
             // 
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(ZpetDoEditace, 0, 2);
+            tableLayoutPanel1.Controls.Add(UlozitAZavrit, 0, 2);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -67,20 +67,20 @@
             tableLayoutPanel1.Size = new Size(800, 450);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // ZpetDoEditace
+            // UlozitAZavrit
             // 
-            ZpetDoEditace.BackColor = Color.Thistle;
-            ZpetDoEditace.Cursor = Cursors.Hand;
-            ZpetDoEditace.Dock = DockStyle.Fill;
-            ZpetDoEditace.FlatStyle = FlatStyle.Flat;
-            ZpetDoEditace.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
-            ZpetDoEditace.Location = new Point(3, 318);
-            ZpetDoEditace.Name = "ZpetDoEditace";
-            ZpetDoEditace.Size = new Size(794, 84);
-            ZpetDoEditace.TabIndex = 6;
-            ZpetDoEditace.Text = "ULOŽIT A ZAVŘÍT";
-            ZpetDoEditace.UseVisualStyleBackColor = false;
-            ZpetDoEditace.Click += ZpetDoEditace_Click;
+            UlozitAZavrit.BackColor = Color.Thistle;
+            UlozitAZavrit.Cursor = Cursors.Hand;
+            UlozitAZavrit.Dock = DockStyle.Fill;
+            UlozitAZavrit.FlatStyle = FlatStyle.Flat;
+            UlozitAZavrit.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 238);
+            UlozitAZavrit.Location = new Point(3, 318);
+            UlozitAZavrit.Name = "UlozitAZavrit";
+            UlozitAZavrit.Size = new Size(794, 84);
+            UlozitAZavrit.TabIndex = 6;
+            UlozitAZavrit.Text = "ULOŽIT A ZAVŘÍT";
+            UlozitAZavrit.UseVisualStyleBackColor = false;
+            UlozitAZavrit.Click += UlozitAZavrit_Click;
             // 
             // tableLayoutPanel2
             // 
@@ -247,7 +247,7 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private Button ZpetDoEditace;
+        private Button UlozitAZavrit;
         private TableLayoutPanel tableLayoutPanel2;
         private Label UpravaNazevLabel;
         private Label UpravaZanrLabel;

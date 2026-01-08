@@ -25,7 +25,6 @@ namespace WinForms_test
             ZobrazeniProEditaci.MultiSelect = false;
             ZobrazeniProEditaci.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ZobrazeniProEditaci.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra;
 
             zdroj.DataSource = databaze.Hry;
             ZobrazeniProEditaci.DataSource = zdroj;
@@ -91,14 +90,20 @@ namespace WinForms_test
 
         private void EditGameButton_Click(object sender, EventArgs e)
         {
-            var UpravaForm = new UpravaForm(databaze);
             var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra;
             if (hra == null)
             {
                 MessageBox.Show("Vyber hru, kterou chceš upravit.");
                 return;
             }
-            UpravaForm.ShowDialog(this);
+            // Dialog je vytvořen v using bloku, aby se po zavření korektně uvolnily systémové prostředky (Dispose).
+            using var upravaForm = new UpravaForm(databaze, hra);
+            var vysledek = upravaForm.ShowDialog(this);
+            // Po uložení (OK) obnovíme BindingSource, aby se zobrazil správně i při filtrování
+            if (vysledek == DialogResult.OK)
+            {
+                zdroj.ResetBindings(false);
+            }
         }
     }
 }
