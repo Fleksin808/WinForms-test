@@ -71,7 +71,7 @@
             MenuLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 12.5F));
             MenuLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             MenuLayoutPanel.Size = new Size(1014, 625);
-            MenuLayoutPanel.TabIndex = 1;           
+            MenuLayoutPanel.TabIndex = 1;
             // 
             // EditaceButton
             // 
@@ -111,7 +111,7 @@
             ClientSize = new Size(1014, 625);
             Controls.Add(MenuLayoutPanel);
             Name = "MainMenu";
-            Text = "Parek";
+            Text = "Hlavní Menu";
             MenuLayoutPanel.ResumeLayout(false);
             MenuLayoutPanel.PerformLayout();
             ResumeLayout(false);
