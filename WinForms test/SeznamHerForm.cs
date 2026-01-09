@@ -11,6 +11,7 @@
             this.WindowState = FormWindowState.Maximized;
             hlavniMenu = menu;
             this.databaze = databaze;
+            FormClosed += (s, e) => hlavniMenu.Show(); // Zamezí skrytí hlavního menu při zavření formuláře
         }
         private void SeznamHerForm_Load(object sender, EventArgs e)
         {
