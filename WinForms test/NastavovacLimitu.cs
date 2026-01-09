@@ -8,7 +8,7 @@ namespace WinForms_test
 {
     internal class NastavovacLimitu
     {
-        public static void NastavRokVydani(NumericUpDown rokNum, int minimalniRok = 1950)
+        public static void NastavRokVydani(NumericUpDown rokNum, int minimalniRok = 1950) // Nastaví limity pro rok vydání
         {
             rokNum.Minimum = minimalniRok;
             rokNum.Maximum = DateTime.Now.Year + 1;
@@ -17,7 +17,7 @@ namespace WinForms_test
                 rokNum.Value = DateTime.Now.Year;
         }
 
-        public static void NastavAchievementy(NumericUpDown splneneNum, NumericUpDown celkemNum)
+        public static void NastavAchievementy(NumericUpDown splneneNum, NumericUpDown celkemNum) // Nastaví limity pro achievementy
         {
             splneneNum.Minimum = 0;
             celkemNum.Minimum = 0;

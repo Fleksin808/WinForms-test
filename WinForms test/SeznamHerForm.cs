@@ -12,6 +12,12 @@
             hlavniMenu = menu;
             this.databaze = databaze;
         }
+        private void SeznamHerForm_Load(object sender, EventArgs e)
+        {
+            NastavovacGridu.NastavSloupecProHry(ZobrazeniZaznamuHer);
+            NastavGridView();
+            ZobrazeniZaznamuHer.DataSource = databaze.Hry;
+        }
 
         private void ZpetDoMenuButton_Click(object sender, EventArgs e)
         {
@@ -19,17 +25,6 @@
             this.Close();
         }
 
-        private void ZobrazeniZaznamuHer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void SeznamHerForm_Load(object sender, EventArgs e)
-        {
-            NastavovacGridu.NastavSloupecProHry(ZobrazeniZaznamuHer);
-            NastavGridView();
-            ZobrazeniZaznamuHer.DataSource = databaze.Hry;
-        }
 
         private void NastavGridView()
         {

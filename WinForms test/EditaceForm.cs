@@ -24,7 +24,7 @@ namespace WinForms_test
             ZobrazeniProEditaci.DataSource = zdroj;
         }
 
-        private void ZpetButton_Click(object sender, EventArgs e)
+        private void ZpetButton_Click(object sender, EventArgs e) // Návrat do hlavního menu
         {
             hlavniMenu.Show();
             this.Close();
@@ -59,11 +59,11 @@ namespace WinForms_test
                 MessageBox.Show("Vyber hru, kterou chceš odebrat.");
                 return;
             }
-
+            // Potvrzení smazání hry
             var potvrzeni = MessageBox.Show($"Opravdu chceš odebrat hru \"{hra.NazevHry}\"?", "Potvrzení",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Warning);
-
+            // Pokud uživatel potvrdí, hra se smaže z databáze a BindingSource se obnoví
             if (potvrzeni == DialogResult.Yes)
             {
                 databaze.SmazatHru(hra);

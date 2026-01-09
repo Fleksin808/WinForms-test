@@ -87,7 +87,6 @@
             ZobrazeniZaznamuHer.Name = "ZobrazeniZaznamuHer";
             ZobrazeniZaznamuHer.Size = new Size(999, 364);
             ZobrazeniZaznamuHer.TabIndex = 0;
-            ZobrazeniZaznamuHer.CellContentClick += ZobrazeniZaznamuHer_CellContentClick;
             // 
             // id
             // 
