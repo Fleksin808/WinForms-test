@@ -21,14 +21,14 @@
         {
             try
             {
-                // Přepíšeme hodnoty do stejného objektu
-                ZapisZFormuDoObjektu();
+                // Zapíše hodnoty z formuláře, do instance zvoleného objektu "Hra"
+                PrevodnikFormulareNaHru.ZapisZFormuDoObjektu(hra, UpravaNazevBox, UpravaZanrBox, UpravaStudioBox, UpravaRokNum, UpravaSplneneNum, UpravaCelkemNum);
 
-                OverPovinnaPole();
+                OverPovinnaPole(); // Ověří vyplnění povinných polí
 
-                hra.ValidaceDat();
+                hra.ValidaceDat(); // Validace dat v objektu "Hra"
 
-                databaze.UlozHryDoSouboru(); // 
+                databaze.UlozHryDoSouboru(); // Uloží změny do souboru XML
 
                 DialogResult = DialogResult.OK; // Rozpoznáno jako úspěch
                 Close();
@@ -39,13 +39,13 @@
             }
         }
 
-        private void NastavLimity()
+        private void NastavLimity() // Nastaví smysluplné limity pro numUpDown ovládací prvky
         {
             NastavovacLimitu.NastavRokVydani(UpravaRokNum);
             NastavovacLimitu.NastavAchievementy(UpravaSplneneNum, UpravaCelkemNum);
         }
 
-        private void NactiDataDoFormu()
+        private void NactiDataDoFormu() // Načte hodnoty z instance zvoleného objektu "Hra" do formuláře
         {
             UpravaNazevBox.Text = hra.NazevHry;
             UpravaZanrBox.Text = hra.Zanr;
@@ -59,26 +59,16 @@
             UpravaCelkemNum.Value = hra.AchievementyCelkem;
             UpravaSplneneNum.Maximum = UpravaCelkemNum.Value;
             UpravaSplneneNum.Value = Math.Min(hra.AchievementySplnene, hra.AchievementyCelkem);
-        }
+        }       
 
-        private void ZapisZFormuDoObjektu()
-        {
-            hra.NazevHry = UpravaNazevBox.Text.Trim();
-            hra.Zanr = UpravaZanrBox.Text.Trim();
-            hra.VyvojarskeStudio = UpravaStudioBox.Text.Trim();
-            hra.RokVydani = (int)UpravaRokNum.Value;
-            hra.AchievementySplnene = (int)UpravaSplneneNum.Value;
-            hra.AchievementyCelkem = (int)UpravaCelkemNum.Value;
-        }
-
-        private void OverPovinnaPole()
+        private void OverPovinnaPole() // Pokud nejsou vyplněna povinná pole, vyhodí výjimku
         {
             if (string.IsNullOrWhiteSpace(hra.NazevHry))
                 throw new ArgumentException("Název hry je povinný.");
             if (string.IsNullOrWhiteSpace(hra.Zanr))
                 throw new ArgumentException("Žánr je povinný.");
+            if (string.IsNullOrWhiteSpace(hra.VyvojarskeStudio))
+                throw new ArgumentException("Vývojářské studio je povinné.");
         }
-
-
     }
 }

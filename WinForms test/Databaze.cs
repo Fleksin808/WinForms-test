@@ -7,6 +7,9 @@ namespace WinForms_test
     {
         private const string NazevSouboru = "DatabaseHer.xml";
 
+        // BindingList je kolekce vhodná pro WinForms data binding:
+        // - DataGridView automaticky reaguje na Add/Remove (změny kolekce)
+        // - Formuláře tedy nemusí ručně překreslovat tabulku po přidání/mazání
         private readonly BindingList<Hra> hry = new();
 
         public BindingList<Hra> Hry => hry;
@@ -17,7 +20,7 @@ namespace WinForms_test
             NactiHryZeSouboru();
         }
 
-        // 1) Soubor existuje? Pokud ne, vytvoří se se základním obsahem
+        // 1) Ověří zda soubor existuje. Pokud ne, vytvoří se se základním obsahem
         private void ZajistiExistenciSouboru()
         {
             if (File.Exists(NazevSouboru))
@@ -114,11 +117,16 @@ namespace WinForms_test
             // Validace všech záznamů před uložením
             foreach (var hra in hry)
                 hra.ValidaceDat();
-
+            // Vytvoření nového XML dokumentu v paměti
+            // Kořenový prvek <Hry> reprezentuje celý seznam her.
             var dokument = new XDocument(
                 new XElement("Hry",
+                    // Pomocí LINQ převedeme kolekci objektů Hra na XML strukturu.
+                    // Pro každou hru se vytvoří samostatný element <Hra>.
                     hry.Select(h => new XElement("Hra",
+                        // Atribut id slouží jako jednoznačný identifikátor hry.
                         new XAttribute("id", h.Id),
+                        // Jednotlivé vlastnosti objektu Hra jsou uloženy jako samostatné XML elementy.
                         new XElement("NazevHry", h.NazevHry),
                         new XElement("VyvojarskeStudio", h.VyvojarskeStudio),
                         new XElement("RokVydani", h.RokVydani),
@@ -129,7 +137,7 @@ namespace WinForms_test
                 )
             );
 
-            dokument.Save(NazevSouboru);
+            dokument.Save(NazevSouboru); // Uložení a přepsání souboru
         }
     }
 }

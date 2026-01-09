@@ -106,6 +106,7 @@
             SaveGameButton.TabIndex = 5;
             SaveGameButton.Text = "ULOŽIT ZMĚNY";
             SaveGameButton.UseVisualStyleBackColor = false;
+            SaveGameButton.Click += SaveGameButton_Click;
             // 
             // EditGameButton
             // 

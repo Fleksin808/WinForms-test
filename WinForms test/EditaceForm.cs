@@ -21,7 +21,7 @@ namespace WinForms_test
             NastavovacGridu.NastavSloupecProHry(ZobrazeniProEditaci);
             NastavDataGrid();
             zdroj.DataSource = databaze.Hry;
-            ZobrazeniProEditaci.DataSource = zdroj;            
+            ZobrazeniProEditaci.DataSource = zdroj;
         }
 
         private void ZpetButton_Click(object sender, EventArgs e)
@@ -30,7 +30,7 @@ namespace WinForms_test
             this.Close();
         }
 
-        private void TextBoxFiltrace_TextChanged(object sender, EventArgs e)
+        private void TextBoxFiltrace_TextChanged(object sender, EventArgs e) // Filtrace her podle názvu
         {
             var hledanyText = TextBoxFiltrace.Text.Trim();
 
@@ -53,7 +53,7 @@ namespace WinForms_test
 
         private void DeleteGameButton_Click(object sender, EventArgs e)
         {
-            var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra;
+            var hra = ZobrazeniProEditaci.CurrentRow?.DataBoundItem as Hra; // Získání vybrané hry z konkrétního řádku
             if (hra == null)
             {
                 MessageBox.Show("Vyber hru, kterou chceš odebrat.");
@@ -82,14 +82,29 @@ namespace WinForms_test
             // Dialog je vytvořen v using bloku, aby se po zavření korektně uvolnily systémové prostředky (Dispose).
             using var upravaForm = new UpravaForm(databaze, hra);
             var vysledek = upravaForm.ShowDialog(this);
-            // Po uložení (OK) obnovíme BindingSource, aby se zobrazil správně i při filtrování
+            // Po uložení (OK) obnovíme BindingSource, aby se zobrazil správně i filtr.
             if (vysledek == DialogResult.OK)
             {
                 zdroj.ResetBindings(false);
             }
         }
 
-        private void NastavDataGrid()
+
+        private void SaveGameButton_Click(object sender, EventArgs e) // Uložení změn do souboru
+        {
+            try
+            {
+                databaze.UlozHryDoSouboru();
+                MessageBox.Show("Změny byly uloženy.", "Uloženo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Chyba při ukládání",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void NastavDataGrid() // Nastavení DataGridView pro zobrazení dat
         {
             ZobrazeniProEditaci.AutoGenerateColumns = false;
             ZobrazeniProEditaci.ReadOnly = true;

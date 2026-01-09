@@ -8,7 +8,7 @@ namespace WinForms_test
 {
     internal class NastavovacGridu
     {
-        public static void NastavSloupec(DataGridView grid, string nazevSloupce, string property)
+        public static void NastavSloupec(DataGridView grid, string nazevSloupce, string property) // Nastaví vlastnost DataPropertyName pro daný sloupec
         {
             var column = grid.Columns[nazevSloupce];
             if (column == null)
@@ -17,7 +17,7 @@ namespace WinForms_test
             column.DataPropertyName = property;
         }
 
-        public static void NastavSloupecProHry(DataGridView grid)
+        public static void NastavSloupecProHry(DataGridView grid) // Nastaví všechny sloupce pro objekt Hra
         {
             NastavSloupec(grid, "id", "Id");
             NastavSloupec(grid, "hra", "NazevHry");

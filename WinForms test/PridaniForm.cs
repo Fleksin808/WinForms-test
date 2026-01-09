@@ -15,21 +15,17 @@
         {
             try
             {
-                var novaHra = new Hra
-                {
-                    NazevHry = PridaniNazevBox.Text.Trim(),
-                    Zanr = PridaniZanrBox.Text.Trim(),
-                    VyvojarskeStudio = PridaniStudioBox.Text.Trim(),
-                    RokVydani = (int)PridaniRokNum.Value,
-                    AchievementySplnene = (int)PridaniSplnenychNum.Value,
-                    AchievementyCelkem = (int)PridaniCelkemNum.Value
-                };
+                var novaHra = new Hra();
+                
+                PrevodnikFormulareNaHru.ZapisZFormuDoObjektu(novaHra, PridaniNazevBox, PridaniZanrBox, PridaniStudioBox,  PridaniRokNum, PridaniSplnenychNum, PridaniCelkemNum);
 
-                // jednoduchá povinná pole
+                // Jednoduchá povinná pole
                 if (string.IsNullOrWhiteSpace(novaHra.NazevHry))
                     throw new ArgumentException("Název hry je povinný.");
                 if (string.IsNullOrWhiteSpace(novaHra.Zanr))
                     throw new ArgumentException("Žánr je povinný.");
+                if (string.IsNullOrWhiteSpace(novaHra.VyvojarskeStudio))
+                    throw new ArgumentException("Vývojářské studio je povinné.");
 
                 novaHra.ValidaceDat();
 
@@ -44,7 +40,7 @@
             this.Close();
         }
 
-        private void PridaniCelkemNum_ValueChanged(object sender, EventArgs e)
+        private void PridaniCelkemNum_ValueChanged(object sender, EventArgs e) // Upraví maximum pro splněné achievementy
         {
             PridaniSplnenychNum.Maximum = PridaniCelkemNum.Value;
 
